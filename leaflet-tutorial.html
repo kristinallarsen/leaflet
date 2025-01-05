@@ -42,19 +42,20 @@ var map = L.map('map').setView([37.716438, -122.441079], 12);
 		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 	}).addTo(map);
 
-var marker = L.marker([37.716438, -122.44]).addTo(map);
+var marker = L.marker([37.7763185, -122.4349713]).addTo(map);
 
 var circle = L.circle([37.716438, -122.441079], {
     color: 'red',
     fillColor: '#f03',
     fillOpacity: 0.5,
-    radius: 500
+    radius: 800
 }).addTo(map);
 
 var polygon = L.polygon([
     [37.712, -122.443],
     [37.718, -122.443],
-    [37.718, -122.442]
+    [37.718, -122.442],
+    [37.712, -122.442],
 ]).addTo(map);
 
 </script>
