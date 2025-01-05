@@ -78,54 +78,9 @@ function onMapClick(e) {
 
 map.on('click', onMapClick);
 
-
-<div id="map2" style="width: 600px; height: 800px;"></div>
-<script>
-
-var map2 = L.map('map2').setView([37.716438, -122.441079], 12);
-
-	L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-		maxZoom: 19,
-		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-	}).addTo(map2);
-
-var marker = L.marker([37.7763185, -122.4349713]).addTo(map2);
-
-var circle = L.circle([37.716438, -122.441079], {
-    color: 'red',
-    fillColor: '#f03',
-    fillOpacity: 0.5,
-    radius: 800
-}).addTo(map2);
-
-var polygon = L.polygon([
-    [37.712, -122.443],
-    [37.718, -122.443],
-    [37.718, -122.442],
-    [37.712, -122.442],
-]).addTo(map2);
-
-	marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
-	circle.bindPopup("I am a circle.");
-	polygon.bindPopup("I am a polygon.");
-
-var popup = L.popup()
-    .setLatLng([37.7763185, -122.49])
-    .setContent("I am a standalone popup.")
-    .openOn(map2);
-
-var popup = L.popup();
-
-function onMapClick(e) {
-    popup
-        .setLatLng(e.latlng)
-        .setContent("You clicked the map at " + e.latlng.toString())
-        .openOn(map2);
-}
-
-map2.on('click', onMapClick);
 </script>
 
+	[demo](https://www.youtube.com/watch?v=gqIWUBf-Qjw)
 </body>
 </html>
 
