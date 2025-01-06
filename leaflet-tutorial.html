@@ -35,8 +35,6 @@
 <div id="map" style="width: 600px; height: 800px;"></div>
 <script>
 
-import L from 'leaflet'
-import { WarpedMapLayer } from '@allmaps/leaflet'
 	
 const map = L.map('map').setView([37.716438, -122.441079], 12);
 
@@ -44,10 +42,6 @@ const map = L.map('map').setView([37.716438, -122.441079], 12);
 		maxZoom: 19,
 		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 	}).addTo(map);
-
-const annotationUrl = 'https://annotations.allmaps.org/manifests/8f9faeba73d67031'
-const warpedMapLayer = new WarpedMapLayer(annotationUrl)
-  .addTo(map)
 
 var marker = L.marker([37.7763185, -122.4349713]).addTo(map);
 
