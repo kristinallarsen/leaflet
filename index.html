@@ -42,27 +42,34 @@ const map = L.map('map').setView([37.75, -122.441082], 13);
 
 var marker = L.marker([37.7763185, -122.4349713]).addTo(map);
 
-var circle = L.circle([37.716438, -122.441079], {
+var circle = L.circle([37.768493, -122.441254], {
     color: 'red',
     fillColor: '#f03',
     fillOpacity: 0.5,
-    radius: 800
+    radius: 300
 }).addTo(map);
 
 var polygon = L.polygon([
-    [37.712, -122.443],
-    [37.718, -122.443],
-    [37.718, -122.442],
-    [37.712, -122.442],
+    [37.735, -122.507],
+    [37.735, -122.506],
+    [37.733, -122.506],
+    [37.728, -122.505],
+    [37.726, -122.505],
+    [37.725, -122.503],
+    [37.724, -122.503],
+    [37.726, -122.506],
+    [37.728, -122.506],
+    [37.728, -122.505],
+    [37.732, -122.507],
 ]).addTo(map);
 
-	marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
-	circle.bindPopup("I am a circle.");
-	polygon.bindPopup("I am a polygon.");
+	marker.bindPopup("<b>Alamo Square</b><br>My local park").openPopup();
+	circle.bindPopup("Buena Vista Park");
+	polygon.bindPopup("Sunset Dunes Park");
 
 var popup = L.popup()
-    .setLatLng([37.7763185, -122.49])
-    .setContent("This pop-up is just chilling.")
+    .setLatLng([37.7697214,-122.4489155])
+    .setContent("Park Branch Library")
     .openOn(map);
 
 var popup = L.popup();
