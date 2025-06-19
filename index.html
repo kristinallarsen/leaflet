@@ -50,17 +50,11 @@ var circle = L.circle([37.768493, -122.441254], {
 }).addTo(map);
 
 var polygon = L.polygon([
-    [37.735, -122.507],
-    [37.735, -122.506],
-    [37.733, -122.506],
-    [37.728, -122.505],
-    [37.726, -122.505],
-    [37.725, -122.503],
-    [37.724, -122.503],
-    [37.726, -122.506],
-    [37.728, -122.506],
-    [37.728, -122.505],
-    [37.732, -122.507],
+    [37.763845, -122.510583],
+    [37.763887, -122.510101],
+    [37.735621, -122.506506],
+    [37.735664, -122.506979],
+   
 ]).addTo(map);
 
 	marker.bindPopup("<b>Alamo Square</b><br>My local park").openPopup();
@@ -68,8 +62,8 @@ var polygon = L.polygon([
 	polygon.bindPopup("Sunset Dunes Park");
 
 var popup = L.popup()
-    .setLatLng([37.7697214,-122.4489155])
-    .setContent("Park Branch Library")
+    .setLatLng([37.77147, -122.469095])
+    .setContent("De Young Museum")
     .openOn(map);
 
 var popup = L.popup();
