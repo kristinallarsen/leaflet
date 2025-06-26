@@ -40,9 +40,7 @@ const map = L.map('map').setView([37.75, -122.441082], 13);
 		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 	}).addTo(map);
   
-  L.geoJSON('https://annotations.allmaps.org/images/ad87bd6513550e53.geojson', {
-		maxZoom: 19
-  }).addTo(map);
+  L.geoJSON('https://annotations.allmaps.org/images/ad87bd6513550e53.geojson').addTo(map);
   
 var marker = L.marker([37.7763185, -122.4349713]).addTo(map);
 
