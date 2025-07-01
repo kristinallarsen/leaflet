@@ -9,19 +9,17 @@
      crossorigin="">
     </script>
 <!--leaflet.opacitycontrols-->
-<link rel="stylesheet" href="lib/leaflet/leaflet.css" />
+<!--hide <link rel="stylesheet" href="lib/leaflet/leaflet.css" />-->
   <!--[if lte IE 8]><link rel="stylesheet" href="/leaflet.opacitycontrols/libs/leaflet.ie.css" /><![endif]-->
-<script src="lib/leaflet/leaflet.js"></script>
-
-<link rel="stylesheet" href="lib/opacity/Control.Opacity.css" />
-<script src="lib/opacity/Control.Opacity.js"></script>
-    
+<!--hide <script src="lib/leaflet/leaflet.js"></script>-->
+  
 
 <script src="lib/jquery/jquery-1.9.1.js"></script>
 <script src="lib/jquery/jquery-ui-1.10.3.custom.min.js"></script>
 <link rel="stylesheet" href="lib/jquery/jquery-ui-1.10.3.custom.min.css" />
 
-<!-- not effing working <script src="leaflet-side-by-side.js"></script> -->
+<link rel="stylesheet" href="lib/opacity/Control.Opacity.css" />
+<script src="lib/opacity/Control.Opacity.js"></script>
 <style>
 		html, body {
 			height: 100%;
@@ -76,7 +74,6 @@ map.addControl(opacitySlider);
 higherOpacity.setOpacityLayer(AllMapsSF);
 
 
-// need to fix: L.control.sideBySide(OpenStreetMap, AllMapsSF).addTo(map);
 
 </script>
 
