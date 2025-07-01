@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Leaflet Tutorial Practice Page PLUS ALLMAPS</title>
+<title>Leaflet PLUS ALLMAPS</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
      crossorigin=""/>
 <!-- Make sure you put this AFTER Leaflet's CSS -->
  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
      crossorigin="">
     </script>
+
+<link rel="stylesheet" href="lib/opacity/Control.Opacity.css" />
+<script src="lib/opacity/Control.Opacity.js"></script>
+  
+
+<script src="lib/jquery/jquery-1.9.1.js"></script>
+<script src="lib/jquery/jquery-ui-1.10.3.custom.min.js"></script>
+<link rel="stylesheet" href="lib/jquery/jquery-ui-1.10.3.custom.min.css" />
+
 <!-- not effing working <script src="leaflet-side-by-side.js"></script> -->
 <style>
 		html, body {
@@ -51,6 +60,15 @@ const AllMapsSF = L.tileLayer('https://allmaps.xyz/images/ad87bd6513550e53/{z}/{
 
 OpenStreetMap.addTo(map);
 AllMapsSF.addTo(map);
+
+// var higherOpacity = new L.Control.higherOpacity();
+// map.addControl(higherOpacity);
+// var lowerOpacity = new L.Control.lowerOpacity();
+// map.addControl(lowerOpacity);
+var opacitySlider = new L.Control.opacitySlider();
+map.addControl(opacitySlider);
+higherOpacity.setOpacityLayer(AllMapsSF);
+
 
 // need to fix: L.control.sideBySide(OpenStreetMap, AllMapsSF).addTo(map);
 
