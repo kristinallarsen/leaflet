@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Leaflet Tutorial Practice Page PLUS ALLMAPS</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+  <script src="https://cdn.jsdelivr.net/npm/@allmaps/leaflet/dist/bundled/allmaps-leaflet-1.9.umd.js"></script>
+<style>
+		html, body {
+			height: 100%;
+			margin: 0px;
+		}
+		.leaflet-container {
+			height: 1000px;
+			width: 1200px;
+			max-width: 100%;
+			max-height: 100%;
+		}
+	</style>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+
+<div id="map" style="width: 1200px; height: 1000px;"></div>
+<script>
+import { WarpedMapLayer } from '@allmaps/leaflet'
+
+const map = L.map('map', {
+  center: [51.0518, 3.7278],
+  zoom: 14,
+  // Zoom animations for more than one zoom level are
+  // currently not supported by the Allmaps plugin for Leafet
+  zoomAnimationThreshold: 1
+})
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution:
+    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map)
+
+const annotationUrl =
+  'https://annotations.allmaps.org/manifests/8f9faeba73d67031'
+const warpedMapLayer = new WarpedMapLayer(annotationUrl).addTo(map)
+
+function onMapClick(e) {
+    popup
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(map);
+}
+
+map.on('click', onMapClick);
+
+</script>
+
+
+</body>
+</html>
