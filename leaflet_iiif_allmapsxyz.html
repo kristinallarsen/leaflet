@@ -2,24 +2,21 @@
 <html>
 <head>
 <title>Leaflet PLUS ALLMAPS XYZ</title>
+<!-- Leaflet CSS and JS -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
      crossorigin=""/>
-<!-- Make sure you put this AFTER Leaflet's CSS -->
  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
      crossorigin="">
     </script>
-<!--leaflet.opacitycontrols-->
-<!--hide <link rel="stylesheet" href="lib/leaflet/leaflet.css" />-->
-  <!--[if lte IE 8]><link rel="stylesheet" href="/leaflet.opacitycontrols/libs/leaflet.ie.css" /><![endif]-->
-<!--hide <script src="lib/leaflet/leaflet.js"></script>-->
-  
 
+<!--JS and CSS for ControlOpacity plugin slider and buttons, installed in my Leaflet repository-->
 <script src="lib/jquery/jquery-1.9.1.js"></script>
 <script src="lib/jquery/jquery-ui-1.10.3.custom.min.js"></script>
 <link rel="stylesheet" href="lib/jquery/jquery-ui-1.10.3.custom.min.css" />
-
 <link rel="stylesheet" href="lib/opacity/Control.Opacity.css" />
 <script src="lib/opacity/Control.Opacity.js"></script>
+
+<!-- CSS for the map container -->
 <style>
 		html, body {
 			height: 100%;
@@ -35,49 +32,47 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 </head>
 
-<body>
 
+<body>
 <div id="map" style="width: 1200px; height: 1000px;"></div>
 <script>
-
+// Initialize the map and set its view to a specific center point and zoom level. 
+// Choose center point coordinates that correspond to the center of the historical map you are using.
+// Allmaps tile server currently only supports one zoom level; here we set it to 13.
 const map = L.map('map', {
   center: [37.757144, -122.443657], // San Francisco
   zoom: 13,
 });
 
+// Define the OpenStreetMap tile layer
 const OpenStreetMap = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom:13,
   attribution:
     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 });
-
-const AllMapsSF = L.tileLayer('https://allmaps.xyz/images/ad87bd6513550e53/{z}/{x}/{y}@2x.png', {
+// Define the georeferenced historical map tile layer from Allmaps Editor. We've named this "AllMaps"
+const AllMaps = L.tileLayer('https://allmaps.xyz/images/ad87bd6513550e53/{z}/{x}/{y}@2x.png', {
   maxZoom:13,
   attribution:
     '&copy; <a href="https://allmaps.xyz">Allmaps</a> contributors'
 });
 
+// Add the OpenStreetMap and AllMaps layers to the map
 OpenStreetMap.addTo(map);
-AllMapsSF.addTo(map);
+AllMaps.addTo(map);
 
-
-
+// Add the ControlOpacity plugin controls
 var higherOpacity = new L.Control.higherOpacity();
 map.addControl(higherOpacity);
 var lowerOpacity = new L.Control.lowerOpacity();
 map.addControl(lowerOpacity);
 var opacitySlider = new L.Control.opacitySlider();
 map.addControl(opacitySlider);
-higherOpacity.setOpacityLayer(AllMapsSF);
-
-
+higherOpacity.setOpacityLayer(AllMaps);
 
 </script>
-
-
 
 </body>
 </html>
