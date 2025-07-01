@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Leaflet PLUS ALLMAPS</title>
+<title>Leaflet PLUS ALLMAPS XYZ</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
      crossorigin=""/>
 <!-- Make sure you put this AFTER Leaflet's CSS -->
  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
      crossorigin="">
     </script>
+<!--leaflet.opacitycontrols-->
+<link rel="stylesheet" href="lib/leaflet/leaflet.css" />
+  <!--[if lte IE 8]><link rel="stylesheet" href="/leaflet.opacitycontrols/libs/leaflet.ie.css" /><![endif]-->
+<script src="lib/leaflet/leaflet.js"></script>
 
 <link rel="stylesheet" href="lib/opacity/Control.Opacity.css" />
 <script src="lib/opacity/Control.Opacity.js"></script>
-  
+    
 
 <script src="lib/jquery/jquery-1.9.1.js"></script>
 <script src="lib/jquery/jquery-ui-1.10.3.custom.min.js"></script>
@@ -61,10 +65,12 @@ const AllMapsSF = L.tileLayer('https://allmaps.xyz/images/ad87bd6513550e53/{z}/{
 OpenStreetMap.addTo(map);
 AllMapsSF.addTo(map);
 
-// var higherOpacity = new L.Control.higherOpacity();
-// map.addControl(higherOpacity);
-// var lowerOpacity = new L.Control.lowerOpacity();
-// map.addControl(lowerOpacity);
+
+
+var higherOpacity = new L.Control.higherOpacity();
+map.addControl(higherOpacity);
+var lowerOpacity = new L.Control.lowerOpacity();
+map.addControl(lowerOpacity);
 var opacitySlider = new L.Control.opacitySlider();
 map.addControl(opacitySlider);
 higherOpacity.setOpacityLayer(AllMapsSF);
